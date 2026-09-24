@@ -1,32 +1,34 @@
-const NOMBRE_USUARIO = admin;
+const NOMBRE_USUARIO = "admin";
 const CONTRASENIA = 1230;
 let intentos = 3;
+let contador=1;
 let condition = true;
+let totalIntentos=3;
 
 
-while (intentos > 0) {
+while (condition) {
 
     let usuario = prompt(`Ingrese su usuario `);
-    let contrasenia = prompt(`Ingrese su contraseña `);
+    let contrasenia = parseInt(prompt(`Ingrese su contraseña `));
 
-    if (usuarioValido && contraseniaValida) {
+    if (usuarioValido(usuario, NOMBRE_USUARIO) && contraseniaValida(contrasenia, CONTRASENIA)) {
         console.log(`Bienvenido al sistema `);
         condition = false
     } else {
-        prompt(`Datos incorrectos, intento  ${intentos} de  ${intentos + 1} `)
+        console.log(`Datos incorrectos, intento  ${intentos} de  ${totalIntentos}  ingrese nuevamente sus datos `);
         intentos--;
+    }
+    if (intentos <= 0) {
+        console.log(`Usuario bloqueado, has superado el número de intentos`);
+        condition = false;
     }
 
 }
-console.log(`Salimos del ciclo`);
 
 function usuarioValido(usuario, NOMBRE_USUARIO) {
     return (usuario === NOMBRE_USUARIO);
 }
 
 function contraseniaValida(CONTRASENIA, contrasenia) {
-    return (contrasenia === CONTRASENIA);
-}
-
-let vallidadcionUsuario = usuarioValido(NOMBRE_USUARIO, usuario);
-let validacionContrasenia = contraseniaValida(contrasenia, CONTRASENIA);
+    return (contrasenia === CONTRASENIA)
+} 
