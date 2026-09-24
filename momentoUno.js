@@ -2,6 +2,7 @@ const NOMBRE_USUARIO = "admin";
 const CONTRASENIA = 1230;
 let intentos = 3;
 let condition = true;
+let totalIntentos=3;
 
 while (condition) {
 
@@ -15,7 +16,7 @@ while (condition) {
         intentos--
 
         if (intentos > 0) {
-            console.log(`Datos incorrectos, intento  ${intentos} de 3 ingrese nuevamente sus datos `);
+            console.log(`Datos incorrectos, intento  ${intentos} de ${totalIntentos} ingrese nuevamente sus datos `);
         }}
         if (intentos === 0) {
             console.log(`Usuario bloqueado, has superado el número de intentos`);
